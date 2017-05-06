@@ -10,9 +10,9 @@ RSpec.describe StaticPagesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "タイトルが「Home | Ruby on Rails Tutorial Sample App」であること" do
+    it "タイトルが「Ruby on Rails Tutorial Sample App」であること" do
       get :home
-      expect(response.body).to have_title 'Home | Ruby on Rails Tutorial Sample App'
+      expect(response.body).to have_title 'Ruby on Rails Tutorial Sample App'
     end
   end
 
