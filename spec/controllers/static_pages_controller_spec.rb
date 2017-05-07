@@ -2,17 +2,15 @@ require 'rails_helper'
 
 RSpec.describe StaticPagesController, type: :controller do
 
-  render_views
-
   describe "GET #home" do
     it "returns http success" do
       get :home
       expect(response).to have_http_status(:success)
     end
 
-    it "タイトルが「Ruby on Rails Tutorial Sample App」であること" do
+    it "homeテンプレートを表示すること" do
       get :home
-      expect(response.body).to have_title 'Ruby on Rails Tutorial Sample App'
+      expect(response).to render_template(:home)
     end
   end
 
@@ -22,9 +20,9 @@ RSpec.describe StaticPagesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "タイトルが「Help | Ruby on Rails Tutorial Sample App」であること" do
+    it "helpテンプレートを表示すること" do
       get :help
-      expect(response.body).to have_title 'Help | Ruby on Rails Tutorial Sample App'
+      expect(response).to render_template(:help)
     end
   end
 
@@ -34,9 +32,9 @@ RSpec.describe StaticPagesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "タイトルが「About | Ruby on Rails Tutorial Sample App」であること" do
+    it "aboutテンプレートを表示すること" do
       get :about
-      expect(response.body).to have_title 'About | Ruby on Rails Tutorial Sample App'
+      expect(response).to render_template(:about)
     end
   end
 
@@ -46,9 +44,9 @@ RSpec.describe StaticPagesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "タイトルが「Contact | Ruby on Rails Tutorial Sample App」であること" do
+    it "contactテンプレートを表示すること" do
       get :contact
-      expect(response.body).to have_title 'Contact | Ruby on Rails Tutorial Sample App'
+      expect(response).to render_template(:contact)
     end
   end
 
