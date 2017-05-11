@@ -3,11 +3,6 @@ require 'rails_helper'
 RSpec.describe StaticPagesController, type: :controller do
 
   describe "GET #home" do
-    it "returns http success" do
-      get :home
-      expect(response).to have_http_status(:success)
-    end
-
     it "homeテンプレートを表示すること" do
       get :home
       expect(response).to render_template(:home)
@@ -15,11 +10,6 @@ RSpec.describe StaticPagesController, type: :controller do
   end
 
   describe "GET #help" do
-    it "returns http success" do
-      get :help
-      expect(response).to have_http_status(:success)
-    end
-
     it "helpテンプレートを表示すること" do
       get :help
       expect(response).to render_template(:help)
@@ -27,11 +17,6 @@ RSpec.describe StaticPagesController, type: :controller do
   end
 
   describe "GET #about" do
-    it "returns http success" do
-      get :about
-      expect(response).to have_http_status(:success)
-    end
-
     it "aboutテンプレートを表示すること" do
       get :about
       expect(response).to render_template(:about)
@@ -39,11 +24,6 @@ RSpec.describe StaticPagesController, type: :controller do
   end
 
   describe "GET #contact" do
-    it "returns http success" do
-      get :contact
-      expect(response).to have_http_status(:success)
-    end
-
     it "contactテンプレートを表示すること" do
       get :contact
       expect(response).to render_template(:contact)
