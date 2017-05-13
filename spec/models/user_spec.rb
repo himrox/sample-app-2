@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
 
   before do
-    @user = User.new(email: 'user@example.com', name: 'Example User',
-                     password: 'foobar', password_confirmation: 'foobar')
+    @user = FactoryGirl.build(:user)
   end
 
   it 'email,nameがあれば 有効であること' do
@@ -82,5 +81,9 @@ RSpec.describe User, type: :model do
   it 'passwordが5文字以下であれば無効であること' do
     @user.password = @user.password_confirmation = 'a' * 5
     expect(@user).not_to be_valid
+  end
+
+  it 'remember_digestがnilならばauthenticated?メソッドはfalseを返すこと' do
+    expect(@user.authenticated?('')).to be false
   end
 end
